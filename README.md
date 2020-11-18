@@ -2,7 +2,7 @@
 Social Media Style Webpage to Provide Information Regarding Health and Wellness
 
 ## What is Minerva
-Minerva is a social media style feed used to display and share information, specifically regarding health and wellness. This solution allows further details and information on health hacks to be provided to the user through the use of links to external sources. As well, as social media continues to grow in popularity, a social media style feed is easy to navigate, minimizing the learning time required for users to effectively use Minerva.
+Minerva is a social media style feed used to display and share information, specifically regarding health and wellness. This solution allows further details and information on health hacks to be provided to the user through the use of links to external sources. As well, as social media continues to grow in popularity, a social media style feed is easy to navigate, minimizing the learning time required for users to effectively use Minerva.<br>
 Note: The project was named Minerva after the Roman goddess of medicine and wisdom.
 
 ## The Prototype
