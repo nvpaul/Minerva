@@ -10,7 +10,7 @@ This prototype was coded using a combination of HTML, CSS, Bootstrap, JQuery, an
 
 ## Design Thinking Process Overview
 ### Background Information
-The life expectancy and health-adjusted life expectancy in Canada have been increasing consistently over the past decade, however, two-thirds of Canadian adults live with at least one MODIFIABLE risk factor for chronic disease, includign self-reported tobacco smoking, physical inactivity, sedentary behaviours, unhealthy eating, harmful use of alcohol, and obesity. 
+The life expectancy and health-adjusted life expectancy in Canada have been increasing consistently over the past decade, however, two-thirds of Canadian adults live with at least one MODIFIABLE risk factor for chronic disease, includign self-reported tobacco smoking, physical inactivity, sedentary behaviours, unhealthy eating, harmful use of alcohol, and obesity. <br>
 Source: https://www.canada.ca/en/public-health/services/publications/healthy-living/how-healthy-canadians.html
 
 ### Situation of Concern (ie. Project Focus)
