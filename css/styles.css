@@ -1,0 +1,354 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.sub {
+    font-size: 16px;
+}
+
+a {
+    color: #004c6c;
+}
+
+header .dropdown-item {
+    color: #003946;
+}
+
+header .dropdown-item.active {
+    color: #003946;
+    background-color: #fff5b5;
+}
+
+.hr-home {
+    border: 1px solid #FFCB05;
+}
+
+header .navbar {
+    font-size: smaller;
+    border-top: 5px solid #FFCB05;
+}
+
+footer .navbar {
+    font-size: smaller;
+    padding: 1.5vh;
+    border-top: 1px solid #004c6c;
+
+}
+
+.nav-link:hover {
+    text-decoration: underline #faa61f;
+}
+
+img.corp-logo {
+    width: 25%;
+    height: auto;
+}
+
+.home-nav a {
+    float: left;
+    display: block;
+    color: #003946;
+    text-align: center;
+    padding: 3px 16px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.home-nav a:hover {
+    border-bottom: 3px solid #faa61f;
+    text-decoration: none;
+}
+
+.home-nav a.active {
+    border-bottom: 3px solid #ADD8E6;
+}
+
+.jumbotron-home {
+    background-image: radial-gradient(rgb(250, 201, 110), #ADD8E6);
+}
+
+.card {
+    border: none;
+    padding: 5px;
+}
+
+.figure1,
+.figure2 {
+    width: 25vh;
+    height: 25vh;
+    margin: 25px;
+}
+
+footer {
+    position: relative;
+}
+
+footer .navbar-brand {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+footer .nav {
+    align-content: flex-end;
+}
+
+footer .copyright p {
+    font-size: xx-small;
+    color: rgb(185, 185, 185);
+}
+
+
+/* MINERVA */
+/* Filters Panel*/
+.jumbotron-filters { 
+    background-image: radial-gradient(rgb(250, 250, 250), #ADD8E6);
+    padding: 1.5em;
+    margin-right: 0em;
+}
+
+.filterSection li:after {
+    /* Each li on a new line*/
+    content: "\A";
+    white-space: pre;
+}
+
+.filterSection {
+    margin: 0px;
+    padding: 0px;
+}
+
+.filterSection li {
+    list-style: none;
+    margin: 0px;
+    padding: 0;
+    display: inline;
+}
+
+.filterFav li:after {
+    /* Each li on a new line*/
+    content: "\A";
+    white-space: pre;
+}
+
+.filterFav {
+    margin: 0px;
+    padding: 0px;
+}
+
+.filterFav li {
+    list-style: none;
+    margin: 0px;
+    padding: 0;
+    display: inline;
+}
+
+.filterByFav li:after {
+    /* Each li on a new line*/
+    content: "\A";
+    white-space: pre;
+}
+
+.filterByFav {
+    margin: 0px;
+    padding: 0px;
+}
+
+.filterByFav li {
+    list-style: none;
+    margin: 0px;
+    padding: 0;
+    display: inline;
+}
+
+  .accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    float: left;
+    margin-left: 5px;
+    color: #003946;
+  }
+
+  .accordion.active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+    float: left;
+  }
+
+  .accordion {
+    cursor: pointer;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    background: transparent;
+    transition: 0.4s;
+  }
+
+  .panel {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+  }
+
+/* Post Filter Function*/
+.showItem {
+    display: list-item;
+}
+
+.hideItem {
+    display: none;
+}
+
+#itemsToFilter li {
+    list-style: none;
+    background-repeat: no-repeat;
+    padding-left: 0;
+    padding-right: 1em;
+}
+
+/* Posts Design */
+  .post {
+    background-color: rgb(248, 248, 248);
+    padding: 1em;
+    margin-bottom:1em;
+    margin-left: 0;
+  }
+
+  .avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .avatarName {
+      display: inline;
+      margin-left: 0.5em;
+      font-size: 20px;
+      font-weight: 700;
+  }
+
+  .postHeader {
+      display: table-cell;
+      width: 100em;
+      vertical-align: middle;
+  }
+
+  .postCategory {
+      background-color: #003946;
+      border-radius: 5px;
+      display: inline;
+      color: white;
+      text-align: center;
+      padding: 0.6em;
+    }
+
+    .alignRight {
+        float: right;
+    }
+
+    .favStar {
+        font-size: 35px;
+        cursor: pointer;
+        user-select: none;
+        text-shadow: 0px 0px 3px #003946, 0px 0px 3px #003946, 0px 0px 3px #003946;
+        color: rgb(248,248,248);
+        padding: 0;
+        padding-right: 0.3em;
+        vertical-align: middle;
+    }
+
+    .isFav {
+        color: #003946;
+        text-shadow: none;
+    }
+
+    .postText {
+        padding: 1.2em;
+        padding-bottom: 0;
+        text-align: justify;
+    }
+
+    .postLink {
+        padding: 0.6em;
+        padding-left: 2em;
+        padding-right: 2em;
+        text-align: center;
+        position: relative;
+        margin: 0 auto;
+        border-radius: 5px;
+        background-image: radial-gradient(rgb(250, 250, 250), #ADD8E6);
+        color: #003946;
+        font-weight: bold;
+        box-shadow: 0 5px #999;
+        outline: none;
+        border: none;
+    }
+
+    .postLink:active { /* Post Link Button "Click" Animation */
+        background-image: radial-gradient(rgb(250, 201, 110), #faa61f);
+        box-shadow: 0 2px #666;
+        transform: translateY(3px);
+    }
+
+    .postDate {
+        color: rgb(200,200,200);
+        font-weight: 300;
+        padding-right: 1em;
+    }
+
+    .postSource {
+        padding: 0em;
+        padding-right: 1em;
+        padding-bottom: 2em;
+        margin: 0;
+        color: rgb(200,200,200);
+        font-weight: 300;
+    }
+
+    div.colFilter {
+        overflow: scroll; /* Scroll Posts Only */
+        background-color: pink;
+    }
+
+    /* Favourites Star Tooltip */
+    .tooltip-inner {
+        background-color: rgba(0, 57, 70, 0.2);
+        color: black;
+        font-weight: 600;
+    }
+
+    .arrow::before {
+        border-bottom-color:rgba(0, 57, 70, 0.2) !important;
+        border-top-color:rgba(0, 57, 70, 0.2) !important;
+    }
+
+    /* Filter By Option */
+    .fa-filter {
+        color: #003946;
+    }
+
+    /*
+    .endPost {
+        width: 100%;
+        padding: 0;
+        font-size: 1em;
+        color: #003946;
+        text-align: center;
+        display: inline-block;
+    }
+    */
+	
+	.decorImg {
+		padding-left: 75px;
+		padding-right: 75px;
+	}

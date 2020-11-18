@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel='icon' href='#' type='image/x-icon' />
+    <title>Minerva</title>
+</head>
+
+<body>
+    <header class="container">
+        <div class="container">
+
+            <ul class="nav home-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">MINERVA</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Filter by: -->
+        <div class="row">
+            <div class="col-sm-9">
+            </div>
+                <div class="col-sm-3">
+                    <i class="fa fa-filter"></i>
+                    <label for="filterDropdown">Sort by</label>
+                    <select id="filterDropdown">
+                        <option value="newFirst">Recent</option>
+                        <option value="oldFirst">Old</option>
+                        <option value="highRating">Highest Rated</option>
+                        <option value="lowRating">Lowest Rated</option>
+                    </select>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <!--Panel to Filter Posts-->
+                <div class="jumbotron jumbotron-filters" style="height:425px">
+                    <!--Favourites Filter-->
+                    <button class="accordion">Favourites</button>
+                    <div class="panel">
+                        <ul class="filterFav">
+                            <li>
+                                <input checked="true" type="checkbox" value="isFavPost"/>
+                                <label>Favourites</label>
+                            </li>
+                            <li>
+                                <input checked="true" type="checkbox" value="notFav"/>
+                                <label>Non-Favourites</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Category Filter-->
+                    <button class="accordion" id="filterAll">All</button>
+                    <div class="panel">
+                        <ul class="filterSection">
+                            <li>
+                                <input checked="true" type="checkbox" value="physicalActivity"/>
+                                <label>Physical Activity</label>
+                            </li>
+                            <li>
+                                <input checked="true" type="checkbox" value="SedentaryBehaviour"/>
+                                <label>Sedentary Behaviour</label>
+                            </li>
+                            <li>
+                                <input checked="true" type="checkbox" value="HealthyEating"/>
+                                <label>Healthy Eating</label>
+                            </li>
+                            <li>
+                                <input checked="true" type="checkbox" value="OtherItem"/>
+                                <label>Other</label>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+                <!--Image Below Filter Panel-->
+                <div class="row">
+                    <img class="decorImg" src="./img/SocialMedia.jpg" alt="Women on Social Media" width="100%">
+                </div>
+            </div>
+            <div class="col-sm-8" style="height:675px;position:relative;">
+                <div style="max-height:100%;overflow:auto">
+                    <!--Posts Begin Here -> Each List Item is a Post-->
+                    <ul id="itemsToFilter">
+                        <li data-type="physicalActivity" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar1.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 1</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Physical Activity</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Whether you’re looking for community, a challenge or just convenience, there’s a workout app for you.<br></p>
+                                    <button class="button postLink" onclick="window.open('https://luminohealth.sunlife.ca/s/article/What-are-the-best-workout-apps-for-your-routine?language=en_US&amp%3BarticleId=ka03m000000Y9azAAC','_blank')">Read the Article</button>
+                                </div> 
+                                <div class="row alignRight">
+                                    <p class="postDate">2019-12-20</p>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="HealthyEating" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar2.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 2</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Healthy Eating</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">What’s new in Canada’s Food Guide? It’s not about food groups and portion sizes, but more about healthy, mindful eating. Plus, a whole lot of plants.<br></p>
+                                    <button class="button postLink" onclick="window.open('https://www.sunlife.ca/ca/Tools+and+Resources/Health+and+Wellness/Eating+well/Get+a+head+start+on+a+healthier+diet+with+these+7+tips?vgnLocale=en_CA','_blank')">Go to the Food Guide</button>
+                                </div>
+                                <div class="row alignRight">
+                                    <p class="postDate">2019-01-23</p>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>       
+                        <li data-type="SedentaryBehaviour" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar3.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 3</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Sedentary Behaviour</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                        <p class="postText">Sitting for long periods of time has been linked to obesity and decreased fitness.<br><span class="postSource">World Health Organization (WHO)</span></p>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <img src="./img/unsplash_Relaxing.jpg" alt="Relaxing on Couch" width=100%>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>           
+                        <li data-type="HealthyEating" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar1.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 1</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Healthy Eating</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Understanding food labels and nutrition facts can help you make informed choices when it comes to your food. We asked a Registered Holistic Nutritionist for her thoughts on why knowing what you’re eating matters.<br></p>
+                                    <button class="button postLink" onclick="window.open('https://luminohealth.sunlife.ca/s/article/The-power-of-using-food-labels?language=en_US&amp%3BarticleId=ka03m000000YALuAAO','_blank')">Read the Article</button>
+                                </div>
+                                <div class="row alignRight">
+                                    <p class="postDate">2020-02-28</p>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="SedentaryBehaviour" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar1.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 1</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Sedentary Behaviour</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Does standing at your desk offer more health benefits than sitting at your desk all day? A registered massage therapist shares tips for maintaining good posture while standing, and the importance of movement throughout the workday.<br></p>
+                                    <button class="button postLink" onclick="window.open('https://luminohealth.sunlife.ca/s/article/Are-standing-desks-good-for-you?language=en_US&amp%3BarticleId=ka03m000000Y9klAAC','_blank')">Read the Article</button>
+                                </div>
+                                <div class="row alignRight">
+                                    <p class="postDate">2020-01-24</p>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="OtherItem" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar3.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 3</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Other</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">I found some information… There are four major “physical” chronic diseases: smoking tobacco, physical inactivity, unhealthy eating, and harmful use of alcohol. All of these also put you at risk for other major chronic diseases such as cardiovascular disease, cancer, chronic respiratory disease, and diabetes. I think that’s a good reason to try and live a healthier lifestyle! Just remember, it takes on average 2 months to form a new habit, so don’t give up!<br><span class="postSource">World Health Organization (WHO)</span></p>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="physicalActivity" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar3.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 3</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Physical Activity</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                        <p class="postText">Especially when the weather is nice, why not try walking or biking where you need to go. If you have to drive, instead of taking the closest parking spot, why not take one a little farther out.<br></p>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <img src="./img/unsplash_walking.jpg" alt="Person Walking" width=100%>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="OtherItem" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar1.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 1</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Other</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                        <p class="postText">Plant Nanny² is an adorable water reminder that keeps track of how much water you drink -- each glass also waters the app’s plants so you both can thrive!<br></p>
+                                        <div class="row">
+                                            <button class="button postLink" onclick="window.open('https://luminohealth.sunlife.ca/s/asb-app/a003m00001Zhap2AAB/plant-nanny?language=en_US','_blank')">Learn More</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <img src="./img/PlantNanny.png" alt="Plant Nanny" width=100%>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="physicalActivity" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar2.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 2</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Physical Activity</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Don’t let the snowy weather lull your commitment to staying healthy and fit into a months-long hibernation. The winter season may come with the frosty winds and shorter days. But it also brings a bounty of fun outdoor workout opportunities that aren’t available the rest of the year. Ready to get that heart rate up and put a new spin on chilling out? Here’s what you need to know.<br></p>
+                                    <button class="button postLink" onclick="window.open('https://www.sunlife.ca/ca/Tools+and+Resources/Health+and+Wellness/Fitness+and+family+health/5+tips+for+safe+and+fun+winter+workouts?vgnLocale=en_CA','_blank')">Read the Article</button>
+                                </div>
+                                <div class="row alignRight">
+                                    <p class="postDate">2019-12-31</p>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="HealthyEating" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar3.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 3</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Healthy Eating</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Try researching which fruits and vegetables are currently in season in your area, then find some new recipes. In season produce is typically much cheaper. Plus, you may find a new favourite meal!<br></p>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="physicalActivity" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar1.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 1</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Physical Activity</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Incorporating appropriate daily exercise helps older adults maintain their physical and mental health and independence at home.<br><span class="postSource">Sinai Health Foundation</span></p>
+                                    <button class="button postLink" onclick="window.open('https://luminohealth.sunlife.ca/s/article/4-benefits-of-exercise-for-older-adults?language=en_US&amp%3BarticleId=ka03m000000zFLiAAM','_blank')">Read the Article</button>
+                                </div>
+                                <div class="row alignRight">
+                                    <p class="postDate">2019-05-22</p>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="HealthyEating" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar2.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 2</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Healthy Eating</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                        <p class="postText">No one wants to feel deprived when it comes to holiday eating. Nutrition experts weigh in on how to keep your appetite in check this season.<br></p>
+                                        <div class="row">
+                                            <button class="button postLink" onclick="window.open('https://www.sunlife.ca/ca/Tools+and+Resources/Health+and+Wellness/Eating+well/7+strategies+for+healthy+holiday+eating?vgnLocale=en_CA','_blank')">Read the Article</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <img src="./img/unsplash_HolidayEating.jpg" alt="Holiday Dinner Table" width=100%>
+                                    </div> 
+                                </div>
+                                <div class="row alignRight">
+                                    <p class="postDate">2018-12-12</p>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="SedentaryBehaviour" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar3.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 3</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Sedentary Behaviour</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Looking to spend less time sitting? Heart and Stroke posted this article with 5 simple ways to reduce sedentary time.<br></p>
+                                    <button class="button postLink" onclick="window.open('https://www.heartandstroke.ca/articles/5-simple-ways-to-reduce-sedentary-time','_blank')">Read the Article</button>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="HealthyEating" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar1.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 1</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Healthy Eating</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Understanding food labels and nutrition facts can help you make informed choices when it comes to your food. We asked a Registered Holistic Nutritionist for her thoughts on why knowing what you’re eating matters. Read the article for nine ideas to help you cook at home more often!<br></p>
+                                    <button class="button postLink" onclick="window.open('https://luminohealth.sunlife.ca/s/article/Cooking-food-at-home-is-smarter-Canada-s-food-guide?language=en_US&amp%3BarticleId=ka03m000000Y9VfAAK','_blank')">Read the Article</button>
+                                </div>
+                                <div class="row alignRight">
+                                    <p class="postDate">2019-12-12</p>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="physicalActivity" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar3.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 3</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Physical Activity</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                        <p class="postText">I’m sure you’ve heard this one before: take the stairs!<br></p>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <img src="./img/unsplash_Stairs.jpg" alt="Person Walking up Staircase" width=100%>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="OtherItem" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar1.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 1</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Other</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Foam beam used to release your back, neck and shoulder tension in just 10-minutes a day.<br></p>
+                                    <button class="button postLink" onclick="window.open('https://luminohealth.sunlife.ca/s/asb-app/a001N00001MGIldQAH/nimbleback?language=en_US','_blank')">Learn More</button>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="physicalActivity" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar2.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 2</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Physical Activity</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Fitting a workout into your busy holiday schedule may seem difficult. But don’t fret. Here’s how you can set realistic fitness goals and sneak in some exercise throughout the festive season.<br></p>
+                                    <button class="button postLink" onclick="window.open('https://www.sunlife.ca/ca/Tools+and+Resources/Health+and+Wellness/Fitness+and+family+health/4+tips+to+stay+active+and+exercise+over+the+holidays?vgnLocale=en_CA','_blank')">Read the Article</button>
+                                </div>
+                                <div class="row alignRight">
+                                    <p class="postDate">2019-12-09</p>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="HealthyEating" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar3.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 3</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Healthy Eating</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Did you know that regularly eating fruits and vegetables (Canada recommends 7-10 servings a day for adults) reduces your risk of certain chronic diseases and cancers? Need some help incorporating them into your meals? Try out some of the recipes on Canada’s Food Guide, while learning more about healthy eating!<br></p>
+                                    <button class="button postLink" onclick="window.open('https://food-guide.canada.ca/en/','_blank')">See All Recipes</button>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="physicalActivity" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar1.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 1</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Physical Activity</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Take Seven is a Self Care and Movement Mastery Platform designed to help you build a healthy exercise habit for life 7-minutes at a time in the office or the home. Stop yo-yo exercising. Explore Movement Mastery as a way to build an exercise habit for life.<br></p>
+                                    <button class="button postLink" onclick="window.open('https://luminohealth.sunlife.ca/s/asb-app/a001N00001MeeqrQAB/seven-movements?language=en_US','_blank')">Learn More</button>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="HealthyEating" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar2.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 2</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Healthy Eating</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Ready to bounce back from your holiday food hangover? A nutrition expert weighs in on how to develop a healthy attitude about eating in the New Year.<br></p>
+                                    <button class="button postLink" onclick="window.open('https://www.sunlife.ca/ca/Tools+and+Resources/Health+and+Wellness/Eating+well/7+tips+to+kick-start+healthy+eating+habits+after+the+holidays?vgnLocale=en_CA','_blank')">Read the Article</button>
+                                </div>
+                                <div class="row alignRight">
+                                    <p class="postDate">2019-01-04</p>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>  
+                        <li data-type="SedentaryBehaviour" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar3.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 3</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Sedentary Behaviour</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Instead of sitting, try walking around while talking on the phone.<br></p>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>   
+                        <li data-type="HealthyEating" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar1.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 1</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Healthy Eating</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                        <p class="postText">Vegetables and fruit are an important part of healthy eating. Get tips on how you can incorporate more servings into your diet.<br><span class="postSource">Canada's Food Guide</span></p>
+                                        <div class="row">
+                                            <button class="button postLink" onclick="window.open('https://luminohealth.sunlife.ca/s/article/Tips-for-eating-more-vegetables-and-fruit?language=en_US&amp%3BarticleId=ka03m000000zFLRAA2','_blank')">Read the Article</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <img src="./img/unsplash_Produce.jpg" alt="Grocery Store Produce" width=100%>
+                                    </div>
+                                </div>
+                                <div class="row alignRight">
+                                    <p class="postDate">2019-07-03</p>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="physicalActivity" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar3.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 3</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Physical Activity</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Do you want to have more energy, decrease stress, become strong, and prolong your independence as you age while helping to prevent chronic diseases including cancer, obesity, hypertension, heart disease, and type 2 diabetes? These are all benefits of physical activity! To learn more and get some tips on how to be more active, visit the link below!<br></p>
+                                    <button class="button postLink" onclick="window.open('https://www.canada.ca/en/public-health/services/being-active/physical-activity-your-health.html#a2','_blank')">Learn More</button>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="physicalActivity" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar2.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 2</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Physical Activity</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                        <p class="postText">Thinking about biking to work? Find out how commuting on two wheels can help your health, your bank account and the environment.<br></p>
+                                        <div class="row">
+                                            <button class="button postLink" onclick="window.open('https://www.sunlife.ca/ca/Tools+and+Resources/Health+and+Wellness/Fitness+and+family+health/5+reasons+to+start+cycling+to+work?vgnLocale=en_CA','_blank')">Learn More</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <img src="./img/unsplash_Bikers.jpg" alt="Bikers" width=100%>
+                                    </div>
+                                </div>
+                                <div class="row alignRight">
+                                    <p class="postDate">2019-06-13</p>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="physicalActivity" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar1.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 1</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Physical Activity</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">LIFT session offers the experience of a boutique fitness studio with the convenience of online streaming fitness. Our online sessions are with world-class coaches, where you can see, hear and talk to each other.<br></p>
+                                    <button class="button postLink" onclick="window.open('https://luminohealth.sunlife.ca/s/asb-app/a001N00001JKud6QAD/lift-session?language=en_US','_blank')">Learn More</button>
+                                </div> 
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="SedentaryBehaviour" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar3.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 3</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Sedentary Behaviour</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Watching TV? Try to stand during the commercial breaks or for a minute or two between episodes!<br></p>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>   
+                        <li data-type="HealthyEating" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar1.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 1</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Healthy Eating</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Explore wholesome indulgence! Healthy and delicious snacks delivered right to you.<br></p>
+                                    <button class="button postLink" onclick="window.open('https://luminohealth.sunlife.ca/s/asb-app/a001N00001LmE8rQAF/naked-snacks?language=en_US','_blank')">Learn More</button>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="physicalActivity" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar3.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 3</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Physical Activity</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Check out the list of partnerships that the government has with organizations and sectors across Canada with the goal of helping Canadians to live active and healthy lives. Maybe you’ll find something new in your community!<br></p>
+                                    <button class="button postLink" onclick="window.open('https://www.canada.ca/en/public-health/services/being-active/promoting-physical-activity.html','_blank')">See All Partnerships</button>
+                                </div> 
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="physicalActivity" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar2.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 2</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Physical Activity</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Temperatures are dropping, but you don’t have to drop your fitness goals. Here’s how to stay healthy, active and in shape throughout the winter.<br></p>
+                                    <button class="button postLink" onclick="window.open('https://www.sunlife.ca/ca/Tools+and+Resources/Health+and+Wellness/Mental+wellness/8+ways+to+keep+fit+and+healthy+this+winter?vgnLocale=en_CA','_blank')">Read the Article</button>
+                                </div>
+                                <div class="row alignRight">
+                                    <p class="postDate">2019-12-27</p>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="SedentaryBehaviour" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar3.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 3</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Sedentary Behaviour</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                        <p class="postText">Why not give the Pomodoro technique a try? After every 25 minutes of work take a 5 minute break. A perfect amount of time for a short walk!<br></p>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <img src="./img/unsplash_timer.jpg" alt="Person Working with a Timer Set" width=100%>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>  
+                        <li data-type="HealthyEating" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar1.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 1</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Healthy Eating</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Oatbox is a Canadian-based breakfast subscription company that handcrafts and delivers healthful and delicious morning products in a convenient monthly box.<br></p>
+                                    <button class="button postLink" onclick="window.open('https://luminohealth.sunlife.ca/s/asb-app/a001N00001MbcwlQAB/oatbox?language=en_US','_blank')">Learn More</button>
+                                </div>
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li data-type="physicalActivity" data-star="notFav">
+                            <div class="jumbotron post">
+                                <div class="row">
+                                    <div class="col-sm-6 postHeader">
+                                        <img src="./img/avatar3.png" alt="Avatar" class="avatar">
+                                        <p class="avatarName">User 3</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="alignRight">
+                                            <i onclick="toggleStar(this)" class="favStar fa fa-star" data-toggle="tooltip" data-title="Add to Favourites" data-animation="true"></i>
+                                            <p class="postCategory">Physical Activity</p>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="row">
+                                    <p class="postText">Have you ever heard of “Active Transportation”? It is using your own power to get from one place to another. To learn more about how you can use active transportation to improve your health and the environment, check out the article below.<br></p>
+                                    <button class="button postLink" onclick="window.open('https://www.canada.ca/en/public-health/services/being-active/active-transportation.html','_blank')">Learn More</button>
+                                </div> 
+                                <div class="row">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <!--
+                    <div class="row endPost">
+                        <i class="fa fa-circle"></i>&nbsp;<i class="fa fa-circle">&nbsp;</i><i class="fa fa-circle"></i>
+                    </div>
+                -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <footer class="container">
+
+        <div class="copyright">
+            <p>
+			<br>
+                Designed by Naomi Paul as a Project for my Work Report
+            </p>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="./js/index.js">
+    </script> 
+
+
+    <!-- Filter Posts -->
+        <!-- Filter by Category -->
+    <script>
+        // get all of our list items
+    var itemsToFilter = document.querySelectorAll("#itemsToFilter li");
+        
+        //setup click event handlers on our checkboxes
+        var checkBoxes = document.querySelectorAll(".filterSection li input");
+        
+        for (var i = 0; i < checkBoxes.length; i++) {
+            checkBoxes[i].addEventListener("click", filterItems, false);
+            checkBoxes[i].checked = true;
+        }
+        
+        // the event handler!
+        function filterItems(e) {
+            var clickedItem = e.target;
+            
+            if (clickedItem.checked == true) {
+                hideOrShowItems(clickedItem.value, "hideItem", "showItem");
+            } else if (clickedItem.checked == false) {
+                hideOrShowItems(clickedItem.value, "showItem", "hideItem");
+            } else {
+                // deal with the indeterminate state if needed
+            }
+        }
+        
+        // add or remove classes to show or hide our content
+        function hideOrShowItems(itemType, classToRemove, classToAdd) {
+            for (var i = 0; i < itemsToFilter.length; i++) {
+                var currentItem = itemsToFilter[i];
+                
+                if (currentItem.getAttribute("data-type") == itemType) {
+                    removeClass(currentItem, classToRemove);
+                    addClass(currentItem, classToAdd);
+                }
+            }
+        }
+        
+        //
+        // Helper functions for adding and removing class values
+        //
+        function addClass(element, classToAdd) {
+            var currentClassValue = element.className;
+                
+            if (currentClassValue.indexOf(classToAdd) == -1) {
+                if ((currentClassValue == null) || (currentClassValue === "")) {
+                    element.className = classToAdd;
+                } else {
+                    element.className += " " + classToAdd;
+                }
+            }
+        }
+                
+        function removeClass(element, classToRemove) {
+            var currentClassValue = element.className;
+        
+            if (currentClassValue == classToRemove) {
+                element.className = "";
+                return;
+            }
+        
+            var classValues = currentClassValue.split(" ");
+            var filteredList = [];
+        
+            for (var i = 0 ; i < classValues.length; i++) {
+                if (classToRemove != classValues[i]) {
+                    filteredList.push(classValues[i]);
+                }
+            }
+        
+            element.className = filteredList.join(" ");
+        }
+        
+    </script>
+        <!-- Filter by Favourites -->
+    <script>
+        var itemsToFilter = document.querySelectorAll("#itemsToFilter li");
+
+        var checkBoxesFav = document.querySelectorAll(".filterFav li input");
+
+            for (var i = 0; i < checkBoxesFav.length; i++) {
+            checkBoxesFav[i].addEventListener("click", filterItemsStar, false);
+            checkBoxesFav[i].checked = true;
+            }
+
+            function filterItemsStar(e) {
+                var clickedItem = e.target;
+                
+                if (clickedItem.checked == true) {
+                    hideOrShowItemsStar(clickedItem.value, "hideItem", "showItem");
+                } else if (clickedItem.checked == false) {
+                    hideOrShowItemsStar(clickedItem.value, "showItem", "hideItem");
+                } else {
+                    // deal with the indeterminate state if needed
+                }
+            }
+
+            function hideOrShowItemsStar(itemType, classToRemove, classToAdd) {
+                for (var i = 0; i < itemsToFilter.length; i++) {
+                    var currentItem = itemsToFilter[i];
+                    
+                    if (currentItem.getAttribute("data-star") == itemType) {
+                        removeClassStar(currentItem, classToRemove);
+                        addClassStar(currentItem, classToAdd);
+                    }
+                }
+            }
+
+            function addClassStar(element, classToAdd) {
+                var currentClassValue = element.className;
+                    
+                if (currentClassValue.indexOf(classToAdd) == -1) {
+                    if ((currentClassValue == null) || (currentClassValue === "")) {
+                        element.className = classToAdd;
+                    } else {
+                        element.className += " " + classToAdd;
+                    }
+                }
+            }
+                    
+            function removeClassStar(element, classToRemove) {
+                var currentClassValue = element.className;
+            
+                if (currentClassValue == classToRemove) {
+                    element.className = "";
+                    return;
+                }
+            
+                var classValues = currentClassValue.split(" ");
+                var filteredList = [];
+            
+                for (var i = 0 ; i < classValues.length; i++) {
+                    if (classToRemove != classValues[i]) {
+                        filteredList.push(classValues[i]);
+                    }
+                }
+            
+                element.className = filteredList.join(" ");
+            }
+        
+    </script>
+
+    <!-- Collapsible Filters -->
+   <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            /* Toggle between adding and removing the "active" class,
+            to highlight the button that controls the panel */
+            this.classList.toggle("active");
+
+            /* Toggle between hiding and showing the active panel */
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+            panel.style.display = "none";
+            } else {
+            panel.style.display = "block";
+            }
+        });
+        }
+   </script>
+
+   <!--Toggle Star Favourites-->
+   <script>
+    function toggleStar(x) {
+        //Change state of star icon on post
+        x.classList.toggle("isFav");
+        //Change data attribute of post to allow filtering by favourites
+        curr = x.closest("li").getAttribute("data-star");
+        if (curr === "notFav") {
+            x.closest("li").setAttribute("data-star", "isFavPost");
+        }
+        else {
+            x.closest("li").setAttribute("data-star", "notFav");
+        }
+    }
+   </script>
+
+   <!--Expand "All" Filter Option Automatically (i.e. on page load-->
+   <script>
+       jQuery(function(){
+           jQuery('#filterAll').click();
+       });
+   </script>
+
+   <!-- Add Tooltip Functionality to Favourites Star -->
+   <script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+    </script>
+
+</body>
+
+</html>
